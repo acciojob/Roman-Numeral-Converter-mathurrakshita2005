@@ -12,13 +12,26 @@ function convertToRoman(num) {
   //your code here
 let result = '';
 
-    for (let i = 0; i < 7; i++) {
-        const roman = obj[i][0];
-        const value = obj[i][1];
+    const romans = [
+        ['M', 1000],
+        ['CM', 900],
+        ['D', 500],
+        ['CD', 400],
+        ['C', 100],
+        ['XC', 90],
+        ['L', 50],
+        ['XL', 40],
+        ['X', 10],
+        ['IX', 9],
+        ['V', 5],
+        ['IV', 4],
+        ['I', 1]
+    ];
 
-        while (num >= value) {
-            result += roman;
-            num -= value;
+    for (let i = 0; i < romans.length; i++) {
+        while (num >= romans[i][1]) {
+            result += romans[i][0];
+            num -= romans[i][1];
         }
     }
 
@@ -28,7 +41,7 @@ let result = '';
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
- console.log(convertToRoman(36));
+ console.log(convertToRoman(798));
 
 
 
